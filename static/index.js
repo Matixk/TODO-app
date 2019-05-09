@@ -54,3 +54,11 @@ function addTaskToList(title, description) {
 document
     .getElementById("clearTaskListBtn")
     .addEventListener("click", () => tasksList.innerHTML = "");
+
+document.getElementById("removeFirstTaskBtn").addEventListener("click", () => {
+        const theOldestTask = tasksList.firstElementChild;
+
+        if (theOldestTask !== null) {
+            theOldestTask.remove();
+        }
+});

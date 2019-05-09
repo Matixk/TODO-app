@@ -22,6 +22,7 @@
         <input type="submit" value="Add" id="createTaskBtn" />
     </form>
 
+    <button id="removeFirstTaskBtn">Remove</button>
     <button id="clearTaskListBtn">Clear</button>
 
     <h1>Your Tasks</h1>
