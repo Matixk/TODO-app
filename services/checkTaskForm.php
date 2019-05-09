@@ -19,6 +19,12 @@ if(isset($_POST["title"]))
 {
     if (isInRange(strLen($_POST["title"]), TITLE_MINSIZE, TITLE_MAXSIZE))
     {
+        if (isset($_POST["description"]) &&
+            !isInRange(strLen($_POST["description"]), DESCRIPTION_MINSIZE, DESCRIPTION_MAXSIZE))
+        {
+            die("Description length must be in range " . DESCRIPTION_MINSIZE . "-" . DESCRIPTION_MAXSIZE);
+        }
+
         http_response_code(200);
         echo "OK";
     } else {
