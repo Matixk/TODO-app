@@ -6,3 +6,11 @@ define("TITLE_MAXSIZE", 255);
 define("DESCRIPTION_MINSIZE", 0);
 define("DESCRIPTION_MAXSIZE", 255);
 
+function isInRange($value, $min, $max)
+{
+    if ($value >= $min && $value <= $max)
+    {
+        return true;
+    }
+    return false;
+}
