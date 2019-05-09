@@ -22,6 +22,8 @@
         <input type="submit" value="Add" id="createTaskBtn" />
     </form>
 
+    <button id="clearTaskListBtn">Clear</button>
+
     <h1>Your Tasks</h1>
     <div id="taskList"></div>
 </body>

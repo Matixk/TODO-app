@@ -1,3 +1,5 @@
+const tasksList = document.getElementById("taskList");
+
 document.getElementById("newTaskForm").addEventListener("submit", event => {
     event.preventDefault();
 
@@ -33,7 +35,6 @@ function createTask(title, description) {
 }
 
 function addTaskToList(title, description) {
-    const tasksList = document.getElementById("taskList");
     let task = document.createElement("div");
     let taskHeader = document.createElement("h3");
 
@@ -49,3 +50,7 @@ function addTaskToList(title, description) {
 
     tasksList.appendChild(task);
 }
+
+document
+    .getElementById("clearTaskListBtn")
+    .addEventListener("click", () => tasksList.innerHTML = "");
