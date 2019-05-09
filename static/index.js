@@ -9,5 +9,25 @@ document.getElementById("newTaskForm").addEventListener("submit", event => {
 });
 
 function createTask(title, description) {
-    console.log("Function not implemented");
+    const XHR = new XMLHttpRequest();
+
+    XHR.onreadystatechange = function(event) {
+        const SENT = 4;
+
+        if (XHR.readyState === SENT) {
+            const OK = 200;
+            const ERROR = 400;
+
+            if (this.status === OK) {
+                console.log("Task added")
+            }
+            if (this.status === ERROR) {
+                alert(event.currentTarget.response);
+            }
+        }
+    };
+
+    XHR.open("POST", "services/checkTaskForm.php", true);
+    XHR.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    XHR.send(`title=${title}&description=${description}`);
 }
