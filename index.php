@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>TODO app</title>
+
+    <script src="static/index.js" defer></script>
 </head>
 <body>
     <h1>Task form</h1>
