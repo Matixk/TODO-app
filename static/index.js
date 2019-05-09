@@ -1,3 +1,5 @@
+const tasksList = document.getElementById("taskList");
+
 document.getElementById("newTaskForm").addEventListener("submit", event => {
     event.preventDefault();
 
@@ -19,7 +21,7 @@ function createTask(title, description) {
             const ERROR = 400;
 
             if (this.status === OK) {
-                console.log("Task added")
+                addTaskToList(title, description);
             }
             if (this.status === ERROR) {
                 alert(event.currentTarget.response);
@@ -31,3 +33,32 @@ function createTask(title, description) {
     XHR.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     XHR.send(`title=${title}&description=${description}`);
 }
+
+function addTaskToList(title, description) {
+    let task = document.createElement("div");
+    let taskHeader = document.createElement("h3");
+
+    taskHeader.innerText = title;
+    task.appendChild(taskHeader);
+
+    if (description.length > 0) {
+        let taskContent = document.createElement("p");
+
+        taskContent.innerText = description;
+        task.appendChild(taskContent);
+    }
+
+    tasksList.appendChild(task);
+}
+
+document
+    .getElementById("clearTaskListBtn")
+    .addEventListener("click", () => tasksList.innerHTML = "");
+
+document.getElementById("removeFirstTaskBtn").addEventListener("click", () => {
+        const theOldestTask = tasksList.firstElementChild;
+
+        if (theOldestTask !== null) {
+            theOldestTask.remove();
+        }
+});
