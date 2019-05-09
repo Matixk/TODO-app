@@ -37,12 +37,15 @@ function createTask(title, description) {
 function addTaskToList(title, description) {
     let task = document.createElement("div");
     let taskHeader = document.createElement("h3");
+    task.className = "card m-3";
+    taskHeader.className = "card-title font-weight-bold m-3";
 
     taskHeader.innerText = title;
     task.appendChild(taskHeader);
 
     if (description.length > 0) {
         let taskContent = document.createElement("p");
+        taskContent.className = "card-text ml-4 mb-2";
 
         taskContent.innerText = description;
         task.appendChild(taskContent);
